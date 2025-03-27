@@ -10,6 +10,14 @@ class Camera:
     - https://github.com/colmap/colmap/blob/3f75f71310fdec803ab06be84a16cee5032d8e0d/src/colmap/sensor/models.h#L220
     - https://en.wikipedia.org/wiki/Pinhole_camera_model
     """
+    fx : float
+    fy : float
+    cx : float
+    cy : float
+    sensor_size_x_mm : float # single pixel size * number of pixels in X dimension
+    sensor_size_y_mm : float # single pixel size * number of pixels in Y dimension
+    image_size_x : int
+    image_size_y : int
     pass
 
 @dataclass
