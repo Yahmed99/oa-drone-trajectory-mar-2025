@@ -31,10 +31,10 @@ def project_world_point_to_image(camera: Camera, point: np.ndarray) -> np.ndarra
         np.ndarray: [u, v] pixel coordinates corresponding to the point.
     """
     X, Y, Z = point
-    fx = camera["fx"]
-    fy = camera["fy"]
-    cx = camera["cx"]
-    cy = camera["cy"]
+    fx = camera.fx
+    fy = camera.fy
+    cx = camera.cx
+    cy = camera.cy
     
     x = fx * (X / Z)
     y = fy * (Y / Z)
