@@ -18,7 +18,17 @@ def compute_distance_between_images(camera: Camera, dataset_spec: DatasetSpec) -
         float: The distance between images in the horizontal direction.
         float: The distance between images in the vertical direction.
     """
-    raise NotImplementedError()
+    #retrieve footprint data
+    footprint = compute_image_footprint_on_surface(camera, dataset_spec.height)
+    footprint_x = footprint[0]
+    footprint_y = footprint[1]
+
+    #calculate distances
+    horizontal_distance = footprint_x * (1- dataset_spec.overlap)
+    vertical_distance = footprint_y * (1- dataset_spec.sidelap)
+    
+    return np.array([horizontal_distance, vertical_distance])
+    # raise NotImplementedError()
 
 
 def compute_speed_during_photo_capture(camera: Camera, dataset_spec: DatasetSpec, allowed_movement_px: float = 1) -> float:

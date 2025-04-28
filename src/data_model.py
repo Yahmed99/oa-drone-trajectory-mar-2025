@@ -27,10 +27,10 @@ class DatasetSpec:
     """
     overlap : float
     sidelap : float
-    height : float # 100 ft
+    height : float
     scan_dimension_x : int
     scan_dimension_y : int
-    exposure_time_ms : int # 1/500 exposure time
+    exposure_time_ms : int
     pass
 
 
