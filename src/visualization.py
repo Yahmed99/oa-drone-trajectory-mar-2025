@@ -1,5 +1,4 @@
-"""Utility to visualize photo plans.
-"""
+"""Utility to visualize photo plans."""
 
 import typing as T
 
@@ -17,4 +16,28 @@ def plot_photo_plan(photo_plans: T.List[Waypoint]) -> go.Figure:
     Returns:
         T.Any: Plotly figure object.
     """
-    raise NotImplementedError()
+    # Retrieve waypoints for plotting
+    x_coordinates = [waypoint.x for waypoint in photo_plans]
+    y_coordinates = [waypoint.y for waypoint in photo_plans]
+    total_waypoints = len(photo_plans)
+
+    #Line setup
+    trace = go.Scatter(
+        x=x_coordinates,
+        y=y_coordinates,
+        mode="lines+markers",
+        name="Flight Path",
+        marker=dict(color="blue"),
+    )
+
+    #Graph setup
+    layout = go.Layout(
+        title=f"Drone Flight Trajectory: {total_waypoints} waypoints",
+        xaxis=dict(title="X Coordinates (meters)"),
+        yaxis=dict(title="Y Coordinates (meters)"),
+        showlegend=True,
+        width=800,
+        height=500,
+    )
+    return go.Figure(data=[trace], layout=layout)
+    # raise NotImplementedError()
