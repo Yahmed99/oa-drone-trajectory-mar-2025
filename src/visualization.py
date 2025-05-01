@@ -32,7 +32,7 @@ def plot_photo_plan(photo_plans: T.List[Waypoint]) -> go.Figure:
 
     #Graph setup
     layout = go.Layout(
-        title=f"Drone Flight Trajectory: {total_waypoints} waypoints",
+        title=f"Drone Flight Trajectory: {total_waypoints} waypoints at {photo_plans[0].speed:.2f} m/s, {photo_plans[0].z} m in the air",
         xaxis=dict(title="X Coordinates (meters)"),
         yaxis=dict(title="Y Coordinates (meters)"),
         showlegend=True,
