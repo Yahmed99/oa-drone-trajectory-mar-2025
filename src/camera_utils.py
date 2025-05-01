@@ -95,12 +95,12 @@ def compute_ground_sampling_distance(
     Returns:
         float: the GSD in meters (smaller among x and y directions).
     """
-    #calculate footprint
+    # calculate footprint
     footprint = compute_image_footprint_on_surface(camera, distance_from_surface)
     footprint_x, footprint_y = footprint
-    
-    gsd_x = footprint_x/camera.image_size_x_px
-    gsd_y = footprint_y/camera.image_size_y_px
+
+    gsd_x = footprint_x / camera.image_size_x_px
+    gsd_y = footprint_y / camera.image_size_y_px
 
     return min(gsd_x, gsd_y)
     # raise NotImplementedError()
